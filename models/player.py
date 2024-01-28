@@ -13,6 +13,7 @@ class Player:
         self.name = name
         self.email = email
         self.chess_id = chess_id
+        self.points = 0
 
         # The class uses a private attribute for the birthdate (datetime format)
         self._birthdate = None
@@ -20,7 +21,11 @@ class Player:
         self.birthday = birthday
 
     def __str__(self):
-        return f"<{self.name}>"
+        return (f"Name: {self.name}\n"
+                f"Email: {self.email}\n"
+                f"ID: {self.chess_id}\n"
+                f"Date of Birth: {self.birthday}\n"
+                f"Points: {self.points}\n")
 
     def __hash__(self):
         """Returns the hash of the object - useful to use the instance as a key in a dictionary or in a set"""
@@ -37,6 +42,9 @@ class Player:
             other.chess_id,
             other.birthdate,
         )
+
+    def add_points(self, points):
+        self.points += points
 
     @property
     def birthday(self):

@@ -34,6 +34,7 @@ def make_club(name, fname=None, count=20):
 
     # Start with the club name
     data = {"name": name}
+    print(data)
     # Add the players from Faker
     data["players"] = [
         {key: getattr(fake, key)() for key in ATTRS} for _ in range(count)
